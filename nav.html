@@ -1,122 +1,127 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+  <meta charset="utf-8">
+  <title>Navbar Demo</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <!-- Google Fonts: Advent Pro -->
+  <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;700&display=swap" rel="stylesheet">
 
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-	<!-- Google Font -->
+    .navMenu {
+      font-family: 'Advent Pro', sans-serif;
+      padding: 8px;
+      text-align: center;
+      margin: 7px auto;
+      width: fit-content;
+      border: 1px solid #cccccc; /* border example */
+    }
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    .navMenu a {
+      color: #272727;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 6px;
+    }
 
-	<!-------->
+    .navMenu a:hover {
+      color: #d09c0b;
+    }
 
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-			-webkit-box-sizing: border-box;
-			box-sizing: border-box;
-		}
-
-
-		.navMenu {
-			font-family: 'Advent Pro', sans-serif;
-			padding: 8px;
-			text-align: center;
-			margin: 7px auto;
-			width: fit-content;
-		}
-
-		.navMenu a {
-			color: #272727;
-			text-decoration: none;
-			text-transform: uppercase;
-			display: inline-block;
-			padding: 6px;
-		}
-
-		.background {
-			background-color: #ece5f0;
-		}
-
-		.border {
-			border: 1px solid #cccccc;
-
-		}
-
-		.navMenu a:hover {
-
-			color: #d09c0b;
-		}
-	</style>
+    /* OPTIONAL: highlight the "active" link */
+    .navMenu a.active {
+      font-weight: bold;
+      color: #d09c0b;
+    }
+  </style>
 </head>
-
 <body>
 
-	<nav class="navMenu  border">
-		<a id="home" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-house"></i> Home</a>
-		<a id="inbox" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-inbox"></i> Inbox</a>
-		<a id="week" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-calendar-week"></i> Planner</a>
-		<a id="projects" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-briefcase"></i> Projects</a>
-		<a id="tasks" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-list-check"></i> Tasks</a>
-		<a id="business" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-money-bill-wave"></i> Business</a>
-		<a id="knowledge" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-lightbulb"></i> Knowledge</a>
-		<a id="topics" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-layer-group"></i> Topics</a>
-		<a id="notes" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-book"></i> Notes</a>
-		<a id="media" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-bookmark"></i> Media</a>
-		<a id="resourses" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-wrench"></i> Resourses</a>
-		<a id="lifewiki" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-heart"></i> Lifewiki</a>
+  <nav class="navMenu">
+    <a id="home" onclick="navigate(this.id)" href="#" aria-label="Go to Home">
+      <i class="fa-solid fa-house"></i> Home
+    </a>
+    <a id="courses" onclick="navigate(this.id)" href="#" aria-label="Go to Courses">
+      <i class="fa-solid fa-chalkboard"></i> Courses
+    </a>
+    <a id="tasks" onclick="navigate(this.id)" href="#" aria-label="Go to Tasks">
+      <i class="fa-solid fa-rectangle-list"></i> Tasks
+    </a>
+    <a id="notes" onclick="navigate(this.id)" href="#" aria-label="Go to Notes">
+      <i class="fa-solid fa-note-sticky"></i> Notes
+    </a>
+    <a id="projects" onclick="navigate(this.id)" href="#" aria-label="Go to Projects">
+      <i class="fa-solid fa-briefcase"></i> Projects
+    </a>
+    <a id="study" onclick="navigate(this.id)" href="#" aria-label="Go to Study">
+      <i class="fa-solid fa-glasses"></i> Study
+    </a>
+    <a id="resources" onclick="navigate(this.id)" href="#" aria-label="Go to Resources">
+      <i class="fa-solid fa-box-archive"></i> Resources
+    </a>
+    <a id="grades" onclick="navigate(this.id)" href="#" aria-label="Go to Grades">
+      <i class="fa-solid fa-ranking-star"></i> Grades
+    </a>
+    <a id="career" onclick="navigate(this.id)" href="#" aria-label="Go to Career">
+      <i class="fa-solid fa-briefcase"></i> Career
+    </a>
+    <a id="contacts" onclick="navigate(this.id)" href="#" aria-label="Go to Contacts">
+      <i class="fa-solid fa-circle-user"></i> Contacts
+    </a>
+  </nav>
 
+  <script>
+    // Toggle "vertical" vs "horizontal" layout
+    let direction = "horizontal";
+    if (direction === "vertical") {
+      // If vertical, inject style to stack links
+      document.head.insertAdjacentHTML("beforeend", `
+        <style>
+          .navMenu a {
+            display: block;
+            text-align: left;
+            margin: 7px;
+          }
+          .navMenu i {
+            width: 15px;
+            margin-right: 5px;
+          }
+        </style>
+      `);
+    }
 
+    // Link mappings for each nav item
+    const links = {
+      home: "https://www.notion.so/mannysmoments/Graduate-school-hub-1bc933849269803d9bb7eb0fa57150bb?pvs=4",
+      courses: "https://www.notion.so/mannysmoments/1bc93384926980d9be2fd4eb18884501?v=1bc933849269801a9446000c1e825d38&pvs=4",
+      tasks: "https://www.notion.so/mannysmoments/1bc93384926980d8b3b4f978e20079bd?v=1bc933849269804a8340000cb6b55c31&pvs=4",
+      notes: "https://www.notion.so/mannysmoments/1bd93384926980af9553ed8ef4d1afdd?v=1bd9338492698031903d000c556db5ad&pvs=4",
+      projects: "https://example.com",
+      study: "https://example.com",
+      resources: "https://www.notion.so/mannysmoments/1bc9338492698034b8cbf255a145887c?v=1bc933849269808581bb000c85026770&pvs=4",
+      grades: "https://www.notion.so/mannysmoments/1bd93384926980d59aa8c122f9937994?v=1bd93384926980ed9d9c000c1a72d0bb&pvs=4",
+      career: "https://www.notion.so/mannysmoments/1bc9338492698008815af8e6f0bd8d4f?v=1bc93384926980de9958000c6862060b&pvs=4",
+      contacts: "https://www.notion.so/mannysmoments/1bc9338492698008815af8e6f0bd8d4f?v=1bc93384926980de9958000c6862060b&pvs=4"
+    };
 
-	</nav>
+    function navigate(id) {
+      // Optional: highlight the clicked item
+      const anchors = document.querySelectorAll('.navMenu a');
+      anchors.forEach(a => a.classList.remove('active'));  // remove active from all
+      document.getElementById(id).classList.add('active'); // add active to the clicked link
 
-
-	<script>
-
-		let direction = "horizontal";
-		if (direction === "vertical") {
-			document.head.insertAdjacentHTML("beforeend", `<style>.navMenu a {display: block; text-align:left; margin:7px} i{width:15px; margin-right:5px} .navMenu{margin:3px}</style>`)
-		}
-
-
-		function navigate(id) {
-
-			if (id == 'home')
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "inbox")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "week")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "month")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "projects")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "business")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "tasks")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "knowledge")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "topics")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "notes")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "media")
-				window.open("https://example.com", '_blank').focus();
-			else if (id == "resourses")
-				window.open("https://example.com3", '_blank').focus();
-			else if (id == "lifewiki")
-				window.open("https://example.com", '_blank').focus();
-
-		}
-	</script>
-
-
+      if (links[id]) {
+        window.open(links[id], '_blank').focus();
+      }
+    }
+  </script>
 </body>
-
 </html>
